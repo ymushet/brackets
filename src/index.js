@@ -1,4 +1,4 @@
-function check(str, bracketsConfig) {
+module.exports =function check(str, bracketsConfig) {
     let stack = [];
     let bracketsMap = {};
     bracketsConfig.forEach(element => {
@@ -6,7 +6,6 @@ function check(str, bracketsConfig) {
     });
     for (let i = 0; i < str.length; i++) {
         const s = str[i];
-        console.log(s);
         if (bracketsMap[s]) {
             stack.push(s);
         } else {
@@ -15,9 +14,6 @@ function check(str, bracketsConfig) {
                 return false;
             }
         }
-        return stack.length === 0;
     }
+    return stack.length === 0;
 }
-
-const config1 = [['(', ')']];
-console.log(check('()', config1));
